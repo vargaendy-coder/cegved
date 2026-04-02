@@ -1,19 +1,190 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <title>CÉGVÉD.hu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CÉGVÉD.hu</title>
+
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:white;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+  position:sticky;
+  top:0;
+}
+
+.logo {
+  font-weight:700;
+  font-size:22px;
+}
+
+.btn {
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  padding:12px 22px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(37,99,235,0.3);
+}
+
+.hero {
+  text-align:center;
+  padding:120px 20px;
+  background:linear-gradient(135deg,#1e3a8a,#2563eb);
+  color:white;
+}
+
+.hero h1 {
+  font-size:48px;
+  max-width:800px;
+  margin:auto;
+}
+
+.hero p {
+  margin-top:20px;
+  font-size:18px;
+  opacity:0.9;
+}
+
+.section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+.cards {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.card {
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:260px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.highlight {
+  background:#eef2ff;
+  padding:80px 20px;
+}
+
+.stats {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:30px;
+}
+
+.stat {
+  font-size:28px;
+  font-weight:bold;
+}
+
+.form {
+  margin-top:30px;
+}
+
+.form input {
+  padding:14px;
+  margin:10px;
+  width:260px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+footer {
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  color:#64748b;
+}
+</style>
 </head>
-<body style="font-family:Arial; text-align:center; padding:50px;">
 
-<h1>CÉGVÉD</h1>
-<p>Vállalkozások biztosítási és kockázatkezelési szakértője</p>
+<body>
 
-<button onclick="alert('Kapcsolat hamarosan!')" 
-style="padding:10px 20px; background:#2563eb; color:white; border:none; border-radius:8px;">
-Konzultáció
-</button>
+<header>
+  <div class="logo">CÉGVÉD</div>
+  <button class="btn">Ingyenes konzultáció</button>
+</header>
+
+<section class="hero">
+  <h1>Egy komoly kár akár tönkre is teheti a vállalkozását</h1>
+  <p>Mi segítünk ezt megelőzni – személyre szabott biztosítási megoldásokkal</p>
+  <br><br>
+  <button class="btn">Kockázati felmérés indítása</button>
+</section>
+
+<section class="section">
+  <h2>Milyen kockázatok fenyegetik?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Vagyonkár</h3>
+      <p>Tűz, betörés, természeti károk több milliós veszteséget okozhatnak</p>
+    </div>
+    <div class="card">
+      <h3>Felelősség</h3>
+      <p>Egy hiba miatt akár perelhetik is a vállalkozását</p>
+    </div>
+    <div class="card">
+      <h3>Üzletleállás</h3>
+      <p>Egy esemény teljes bevételkiesést okozhat</p>
+    </div>
+  </div>
+</section>
+
+<section class="highlight">
+  <h2>Miért választanak minket?</h2>
+  <div class="stats">
+    <div class="stat">100+</div>
+    <div class="stat">10+ év</div>
+    <div class="stat">Gyors ügyintézés</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Kérjen ingyenes ajánlatot</h2>
+  <p>24 órán belül visszahívjuk</p>
+
+  <div class="form">
+    <input placeholder="Cégnév"><br>
+    <input placeholder="Email"><br>
+    <input placeholder="Telefonszám"><br>
+    <br>
+    <button class="btn">Ajánlatot kérek</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 CÉGVÉD.hu | Minden jog fenntartva
+</footer>
 
 </body>
 </html>
