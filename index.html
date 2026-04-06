@@ -244,6 +244,134 @@ footer {
 <footer>
   © 2026 CÉGVÉD.hu | Minden jog fenntartva
 </footer>
+<!-- ===== MINI TESZT POPUP ===== -->
 
+<style>
+#popup {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:999;
+}
+
+.popup-content {
+  background:white;
+  max-width:600px;
+  margin:60px auto;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+.popup-content h2 {
+  margin-bottom:10px;
+}
+
+.question {
+  margin:15px 0;
+}
+
+.question button {
+  margin:5px;
+  padding:8px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.yes { background:#16a34a; color:white; }
+.no { background:#dc2626; color:white; }
+
+#result {
+  margin-top:20px;
+  font-weight:bold;
+}
+</style>
+
+<div id="popup">
+  <div class="popup-content">
+
+    <h2>Cégkockázat felmérés</h2>
+    <p>Válaszoljon a kérdésekre:</p>
+
+    <div class="question">Van felelősségbiztosítása?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Van telephely vagyonbiztosítása?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Biztosítottak a gépek, eszközök?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Van üzemszünet biztosítása?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Van munkáltatói felelősségbiztosítás?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Van csoportos életbiztosítás?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div class="question">Van tulajdonosi életbiztosítás?
+      <button class="yes" onclick="answer(1)">Igen</button>
+      <button class="no" onclick="answer(0)">Nincs</button>
+    </div>
+
+    <div id="result"></div>
+
+    <br>
+    <a href="#ajanlat" class="cta-btn">Ajánlatot kérek</a>
+
+  </div>
+</div>
+
+<script>
+let score = 0;
+let count = 0;
+
+function answer(val){
+  score += val;
+  count++;
+
+  if(count === 7){
+    let text = "";
+
+    if(score >= 6){
+      text = "Az Önök védelme kiváló, de érdemes időnként felülvizsgálni.";
+    } else if(score >= 3){
+      text = "A vállalkozása közepes kockázatnak van kitéve.";
+    } else {
+      text = "A vállalkozása jelentős kockázatoknak van kitéve.";
+    }
+
+    document.getElementById("result").innerText = text;
+  }
+}
+
+function openPopup(){
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+  score = 0;
+  count = 0;
+}
+</script>
+  
 </body>
 </html>
