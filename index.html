@@ -6,8 +6,12 @@
 <title>CÉGVÉD.hu</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#f4f7fb;color:#0f172a}
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#f5f7fb;
+  color:#0f172a;
+}
 
 /* HEADER */
 header{
@@ -20,137 +24,128 @@ header{
   padding:20px 60px;
   z-index:10;
 }
-.logo img{height:55px}
-.nav{display:flex;gap:30px;align-items:center}
-.nav a{color:white;text-decoration:none;font-weight:500}
-.cta{background:#f97316;color:white;padding:12px 22px;border-radius:10px}
+
+.logo img{
+  height:60px;
+  background:white;
+  padding:6px;
+  border-radius:10px;
+}
+
+.nav{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.cta{
+  background:#f97316;
+  padding:12px 20px;
+  border-radius:10px;
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+}
 
 /* HERO */
 .hero{
   height:90vh;
-  background:url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop') center/cover;
+  background:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop') center/cover;
   display:flex;
   align-items:center;
   position:relative;
 }
+
 .hero::after{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg, rgba(10,25,50,0.85) 0%, rgba(10,25,50,0.6) 40%, rgba(0,0,0,0.2) 100%);
+  background:linear-gradient(90deg,rgba(10,25,50,0.85),rgba(10,25,50,0.4));
 }
+
 .hero-content{
   position:relative;
   color:white;
-  max-width:650px;
+  max-width:700px;
   margin-left:80px;
 }
-.hero h1{font-size:48px;line-height:1.2}
-.hero p{margin-top:20px;font-size:18px}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.2;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:20px;
+}
+
 .hero-btn{
   margin-top:30px;
   display:inline-block;
   background:#f97316;
-  padding:14px 28px;
-  border-radius:10px;
+  padding:16px 30px;
+  border-radius:12px;
   color:white;
   text-decoration:none;
   font-weight:600;
 }
 
 /* SECTION */
-.section{padding:80px 20px;text-align:center}
-.container{max-width:1100px;margin:auto}
-
-/* TEST BLOKK */
-.test-section{
-  margin-top:-60px;
-  background:white;
-  border-radius:15px;
-  padding:40px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.1);
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-}
-.test-left{flex:1;text-align:left}
-.test-left h2{margin-bottom:10px}
-.test-left p{margin-bottom:20px;color:#475569}
-.test-item{margin:10px 0}
-.test-item::before{
-  content:"✔";
-  color:green;
-  margin-right:10px;
-}
-
-/* RIGHT CARD */
-.test-right{
-  width:300px;
-  background:linear-gradient(135deg,#1e3a8a,#1e40af);
-  color:white;
-  border-radius:12px;
-  padding:20px;
+.section{
+  padding:80px 20px;
   text-align:center;
 }
-.test-right button{
-  margin-top:20px;
-  background:#f97316;
-  border:none;
-  padding:12px 20px;
-  border-radius:8px;
-  color:white;
-  cursor:pointer;
-}
 
-/* RESULT */
-.results{margin-top:60px;text-align:center}
-.shields{display:flex;justify-content:center;gap:40px;margin-top:30px}
-.shield{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  width:180px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* CTA */
-.cta-section{
-  margin-top:40px;
-}
-.cta-big{
-  background:#f97316;
-  padding:14px 28px;
-  color:white;
-  border-radius:10px;
-  text-decoration:none;
-  display:inline-block;
-}
-
-/* WHY */
-.why{
-  margin-top:80px;
-  background:#0f172a;
-  color:white;
-  padding:60px 20px;
-}
-.why-items{
+/* CARDS */
+.cards{
   display:flex;
   justify-content:center;
-  gap:40px;
-  margin-top:30px;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:40px;
 }
-.why-item{text-align:center}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:260px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
 
 /* FORM */
-.form-section{padding:80px 20px;text-align:center}
 .form input{
   padding:14px;
   margin:10px;
   width:260px;
-  border-radius:8px;
+  border-radius:10px;
   border:1px solid #ccc;
 }
-.btn{background:#f97316;color:white;padding:12px 22px;border:none;border-radius:10px}
+
+.btn{
+  background:#2563eb;
+  color:white;
+  padding:14px 28px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  color:#64748b;
+}
 </style>
 </head>
 
@@ -160,10 +155,10 @@ header{
   <div class="logo">
     <img src="logo.png">
   </div>
+
   <div class="nav">
     <a href="#">Főoldal</a>
     <a href="#">Szolgáltatások</a>
-    <a href="#">Kockázat Teszt</a>
     <a href="#">Kapcsolat</a>
     <a href="#ajanlat" class="cta">Ingyenes konzultáció</a>
   </div>
@@ -177,64 +172,43 @@ header{
   </div>
 </section>
 
-<div class="container">
-  <div class="test-section">
-    
-    <div class="test-left">
-      <h2>Ingyenes Vállalkozás Biztosítási Kockázat Teszt</h2>
-      <p>Tudja meg, mennyire van védve az Ön cége!</p>
+<section class="section">
+  <h2>Ne kockáztassa vállalkozása jövőjét</h2>
+  <p>Ingyenes kockázati felmérés – 24 órán belül visszahívjuk</p>
 
-      <div class="test-item">Van felelősségbiztosítása?</div>
-      <div class="test-item">Védett a telephelye?</div>
-      <div class="test-item">Van kieső bevétel biztosítása?</div>
-      <div class="test-item">Van vezetői biztosítás?</div>
-      <div class="test-item">Van kiberbiztosítás?</div>
-      <div class="test-item">Van üzembiztonsági terve?</div>
+  <div class="cards">
+    <div class="card">
+      <h3>Vagyonkár</h3>
+      <p>Tűz, betörés, természeti károk több milliós veszteséget okozhatnak</p>
     </div>
-
-    <div class="test-right">
-      <h3>Cégkockázat Teszt</h3>
-      <p>2 perc alatt</p>
-      <button>Indítás →</button>
+    <div class="card">
+      <h3>Felelősség</h3>
+      <p>Egy hiba miatt akár perelhetik is a vállalkozását</p>
     </div>
-
-  </div>
-
-  <div class="results">
-    <h3>Az Ön Eredménye:</h3>
-    <div class="shields">
-      <div class="shield">Jól védett</div>
-      <div class="shield">Közepes</div>
-      <div class="shield">Magas kockázat</div>
+    <div class="card">
+      <h3>Üzletleállás</h3>
+      <p>Egy esemény teljes bevételkiesést okozhat</p>
     </div>
-
-    <div class="cta-section">
-      <a href="#ajanlat" class="cta-big">Kérjen ingyenes konzultációt</a>
-    </div>
-  </div>
-</div>
-
-<section class="why">
-  <h2>Miért válasszon minket?</h2>
-  <div class="why-items">
-    <div class="why-item">Szakértői tapasztalat</div>
-    <div class="why-item">Testre szabott megoldások</div>
-    <div class="why-item">Gyors ügyintézés</div>
   </div>
 </section>
 
-<section class="form-section" id="ajanlat">
-  <h2>Kérjen ajánlatot</h2>
+<section id="ajanlat" class="section">
+  <h2>Kérjen ingyenes ajánlatot</h2>
 
   <form action="https://formspree.io/f/xjgpeaab" method="POST" class="form">
-    <input name="cegnev" placeholder="Cégnév"><br>
-    <input name="adoszam" placeholder="Adószám"><br>
-    <input name="teaor" placeholder="TEÁOR"><br>
-    <input type="email" name="email" placeholder="Email"><br>
-    <input name="telefon" placeholder="Telefon"><br><br>
-    <button class="btn">Ajánlatot kérek</button>
+    <input name="cegnev" placeholder="Cégnév" required><br>
+    <input name="adoszam" placeholder="Adószám" required><br>
+    <input name="teaor" placeholder="TEÁOR szám" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input name="telefon" placeholder="Telefonszám" required><br><br>
+
+    <button type="submit" class="btn">Ajánlatot kérek</button>
   </form>
 </section>
+
+<footer>
+  © 2026 CÉGVÉD.hu | Minden jog fenntartva
+</footer>
 
 </body>
 </html>
