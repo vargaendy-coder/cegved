@@ -12,53 +12,85 @@ body {
   background:#f8fafc;
 }
 
+/* HEADER */
 header {
+  position:absolute;
+  top:0;
+  width:100%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 40px;
-  background:white;
+  padding:20px 60px;
+  z-index:10;
 }
 
-.logo {
-  font-weight:700;
-  font-size:22px;
-  color:#1e3a8a;
+.logo img {
+  height:50px;
 }
 
-.btn {
+.nav {
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.cta-btn {
   background:#f97316;
   color:white;
   padding:12px 22px;
-  border:none;
   border-radius:10px;
-  cursor:pointer;
+  text-decoration:none;
 }
 
+/* HERO */
 .hero {
-  background:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070') center/cover;
-  color:white;
-  padding:140px 20px;
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop') center/cover;
   position:relative;
+  display:flex;
+  align-items:center;
 }
 
 .hero::after {
-  content:"";
+  content:'';
   position:absolute;
-  top:0;left:0;right:0;bottom:0;
+  top:0; left:0; right:0; bottom:0;
   background:rgba(0,0,0,0.6);
 }
 
 .hero-content {
   position:relative;
-  max-width:900px;
-  margin:auto;
+  color:white;
+  max-width:700px;
+  margin-left:80px;
 }
 
 .hero h1 {
-  font-size:48px;
+  font-size:52px;
 }
 
+.hero p {
+  margin-top:20px;
+  font-size:20px;
+}
+
+.hero-btn {
+  margin-top:30px;
+  display:inline-block;
+  background:#f97316;
+  padding:16px 30px;
+  border-radius:12px;
+  color:white;
+  text-decoration:none;
+}
+
+/* SECTIONS */
 .section {
   padding:80px 20px;
   text-align:center;
@@ -79,10 +111,22 @@ header {
   box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
+/* FORM */
 .form input {
   padding:14px;
   margin:10px;
   width:260px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.btn {
+  background:#f97316;
+  color:white;
+  padding:12px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -90,16 +134,23 @@ header {
 <body>
 
 <header>
-  <div class="logo">CÉGVÉD.hu</div>
-  <button class="btn">Ingyenes konzultáció</button>
+  <div class="logo">
+    <img src="logo.png" alt="Cégvéd">
+  </div>
+
+  <div class="nav">
+    <a href="#">Főoldal</a>
+    <a href="#">Szolgáltatások</a>
+    <a href="#">Kapcsolat</a>
+    <a href="#ajanlat" class="cta-btn">Ingyenes konzultáció</a>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
     <h1>Megvédjük vállalkozását a váratlan károktól</h1>
     <p>Személyre szabott biztosítási megoldások cégeknek</p>
-    <br>
-    <button class="btn">Kockázat felmérés</button>
+    <a href="#ajanlat" class="hero-btn">Kockázati felmérés</a>
   </div>
 </section>
 
@@ -109,32 +160,33 @@ header {
   <div class="cards">
     <div class="card">
       <h3>Vagyonkár</h3>
+      <p>Tűz, betörés, természeti károk</p>
     </div>
 
     <div class="card">
       <h3>Felelősség</h3>
+      <p>Perek és károk elleni védelem</p>
     </div>
 
     <div class="card">
       <h3>Üzletleállás</h3>
+      <p>Bevételkiesés elleni biztosítás</p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Kérjen ingyenes ajánlatot</h2>
+<section class="section" id="ajanlat">
+  <h2>Ne kockáztassa vállalkozása jövőjét</h2>
+  <p>Ingyenes kockázati felmérés – 24 órán belül visszahívjuk</p>
 
   <form action="https://formspree.io/f/xjgpeaab" method="POST" class="form">
-
-    <input name="cegnev" placeholder="Cégnév"><br>
-    <input name="adoszam" placeholder="Adószám"><br>
-    <input name="teaor" placeholder="TEÁOR"><br>
-    <input name="email" placeholder="Email"><br>
-    <input name="telefon" placeholder="Telefon"><br>
-
+    <input name="cegnev" placeholder="Cégnév" required><br>
+    <input name="adoszam" placeholder="Adószám" required><br>
+    <input name="teaor" placeholder="TEÁOR szám" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input name="telefon" placeholder="Telefonszám" required><br>
     <br>
-    <button class="btn">Ajánlatot kérek</button>
-
+    <button type="submit" class="btn">Ingyenes felmérést kérek</button>
   </form>
 </section>
 
