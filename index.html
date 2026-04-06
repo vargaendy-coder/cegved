@@ -1,47 +1,142 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CÉGVÉD.hu</title>
+
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#f8fafc;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:white;
+}
+
+.logo {
+  font-weight:700;
+  font-size:22px;
+  color:#1e3a8a;
+}
+
+.btn {
+  background:#f97316;
+  color:white;
+  padding:12px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.hero {
+  background:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070') center/cover;
+  color:white;
+  padding:140px 20px;
+  position:relative;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+
+.hero h1 {
+  font-size:48px;
+}
+
+.section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+.cards {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card {
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  width:260px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.form input {
+  padding:14px;
+  margin:10px;
+  width:260px;
+}
+</style>
+</head>
+
+<body>
+
 <header>
-  <div style="display:flex; align-items:center; gap:10px;">
-    <div style="font-size:26px;">🛡️</div>
-    <div class="logo">CÉGVÉD.hu</div>
-  </div>
+  <div class="logo">CÉGVÉD.hu</div>
   <button class="btn">Ingyenes konzultáció</button>
 </header>
 
-<section style="
-  background:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2070&auto=format&fit=crop') center/cover;
-  padding:140px 20px;
-  color:white;
-  position:relative;
-">
-
-<div style="
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.55);
-"></div>
-
-<div style="position:relative; max-width:900px; margin:auto; text-align:left;">
-  
-  <h1 style="font-size:46px;">
-    Megvédjük vállalkozását a váratlan károktól
-  </h1>
-
-  <p style="margin-top:20px; font-size:18px;">
-    Személyre szabott biztosítási megoldások cégeknek – egyszerűen, érthetően
-  </p>
-
-  <br>
-
-  <button style="
-    background:#f97316;
-    color:white;
-    padding:14px 28px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    cursor:pointer;
-  ">
-    Kockázat felmérés
-  </button>
-
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Megvédjük vállalkozását a váratlan károktól</h1>
+    <p>Személyre szabott biztosítási megoldások cégeknek</p>
+    <br>
+    <button class="btn">Kockázat felmérés</button>
+  </div>
 </section>
+
+<section class="section">
+  <h2>Milyen kockázatok fenyegetik?</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Vagyonkár</h3>
+    </div>
+
+    <div class="card">
+      <h3>Felelősség</h3>
+    </div>
+
+    <div class="card">
+      <h3>Üzletleállás</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Kérjen ingyenes ajánlatot</h2>
+
+  <form action="https://formspree.io/f/xjgpeaab" method="POST" class="form">
+
+    <input name="cegnev" placeholder="Cégnév"><br>
+    <input name="adoszam" placeholder="Adószám"><br>
+    <input name="teaor" placeholder="TEÁOR"><br>
+    <input name="email" placeholder="Email"><br>
+    <input name="telefon" placeholder="Telefon"><br>
+
+    <br>
+    <button class="btn">Ajánlatot kérek</button>
+
+  </form>
+</section>
+
+</body>
+</html>
