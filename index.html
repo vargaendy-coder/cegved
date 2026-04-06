@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family: 'Segoe UI', sans-serif;
-  background:#f5f7fb;
+  background:#eef2f7;
   color:#0f172a;
 }
 
@@ -17,7 +17,6 @@ body{
 header{
   position:absolute;
   width:100%;
-  top:0;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -26,7 +25,7 @@ header{
 }
 
 .logo img{
-  height:60px;
+  height:65px;
   background:white;
   padding:6px;
   border-radius:10px;
@@ -41,7 +40,6 @@ header{
 .nav a{
   color:white;
   text-decoration:none;
-  font-weight:500;
 }
 
 .cta{
@@ -50,35 +48,33 @@ header{
   border-radius:10px;
   color:white;
   font-weight:600;
-  text-decoration:none;
 }
 
 /* HERO */
 .hero{
   height:90vh;
-  background:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop') center/cover;
+  background:url('https://images.unsplash.com/photo-1581091215367-59ab6b4c6c7f?q=80&w=2070&auto=format&fit=crop') center/cover;
+  position:relative;
   display:flex;
   align-items:center;
-  position:relative;
 }
 
 .hero::after{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,rgba(10,25,50,0.85),rgba(10,25,50,0.4));
+  background:linear-gradient(90deg, rgba(5,15,35,0.9), rgba(5,15,35,0.4));
 }
 
 .hero-content{
   position:relative;
   color:white;
-  max-width:700px;
+  max-width:650px;
   margin-left:80px;
 }
 
 .hero h1{
   font-size:52px;
-  line-height:1.2;
 }
 
 .hero p{
@@ -100,27 +96,60 @@ header{
 /* SECTION */
 .section{
   padding:80px 20px;
-  text-align:center;
 }
 
-/* CARDS */
-.cards{
+/* TEST BLOCK */
+.test-wrap{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+}
+
+.test-left{
+  flex:2;
+}
+
+.test-right{
+  flex:1;
+  background:#1e3a8a;
+  color:white;
+  padding:30px;
+  border-radius:15px;
+}
+
+.test-item{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+/* RESULT */
+.results{
+  text-align:center;
+  margin-top:60px;
+}
+
+.shields{
   display:flex;
   justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-  margin-top:40px;
+  gap:40px;
+  margin-top:30px;
 }
 
-.card{
+.shield{
   background:white;
-  padding:30px;
-  border-radius:20px;
-  width:260px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  padding:20px;
+  border-radius:15px;
 }
 
 /* FORM */
+.form{
+  text-align:center;
+  margin-top:60px;
+}
+
 .form input{
   padding:14px;
   margin:10px;
@@ -135,15 +164,12 @@ header{
   padding:14px 28px;
   border:none;
   border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:30px;
-  font-size:13px;
   color:#64748b;
 }
 </style>
@@ -173,41 +199,55 @@ footer{
 </section>
 
 <section class="section">
-  <h2>Ne kockáztassa vállalkozása jövőjét</h2>
-  <p>Ingyenes kockázati felmérés – 24 órán belül visszahívjuk</p>
+  <div class="test-wrap">
 
-  <div class="cards">
-    <div class="card">
-      <h3>Vagyonkár</h3>
-      <p>Tűz, betörés, természeti károk több milliós veszteséget okozhatnak</p>
+    <div class="test-left">
+      <h2>Ingyenes vállalkozás biztosítási kockázat teszt</h2>
+
+      <div class="test-item">✔ Van a cégének felelősségbiztosítása?</div>
+      <div class="test-item">✔ Védett a telephelye vagyonbiztosítással?</div>
+      <div class="test-item">✔ Van biztosítása kieső bevételre?</div>
+      <div class="test-item">✔ Vezetői felelősségbiztosítása van?</div>
+      <div class="test-item">✔ Van kibervédelme?</div>
+
     </div>
-    <div class="card">
-      <h3>Felelősség</h3>
-      <p>Egy hiba miatt akár perelhetik is a vállalkozását</p>
+
+    <div class="test-right">
+      <h3>Cégkockázat teszt</h3>
+      <p>2 perc alatt felmérjük</p>
+      <br>
+      <a href="#ajanlat" class="hero-btn">Indítás →</a>
     </div>
-    <div class="card">
-      <h3>Üzletleállás</h3>
-      <p>Egy esemény teljes bevételkiesést okozhat</p>
+
+  </div>
+
+  <div class="results">
+    <h2>Az Ön eredménye:</h2>
+
+    <div class="shields">
+      <div class="shield">Jól védett</div>
+      <div class="shield">Közepes kockázat</div>
+      <div class="shield">Magas kockázat</div>
     </div>
   </div>
 </section>
 
-<section id="ajanlat" class="section">
+<section id="ajanlat" class="form">
   <h2>Kérjen ingyenes ajánlatot</h2>
 
-  <form action="https://formspree.io/f/xjgpeaab" method="POST" class="form">
+  <form action="https://formspree.io/f/xjgpeaab" method="POST">
     <input name="cegnev" placeholder="Cégnév" required><br>
     <input name="adoszam" placeholder="Adószám" required><br>
     <input name="teaor" placeholder="TEÁOR szám" required><br>
     <input type="email" name="email" placeholder="Email" required><br>
     <input name="telefon" placeholder="Telefonszám" required><br><br>
 
-    <button type="submit" class="btn">Ajánlatot kérek</button>
+    <button class="btn">Ajánlatot kérek</button>
   </form>
 </section>
 
 <footer>
-  © 2026 CÉGVÉD.hu | Minden jog fenntartva
+  © 2026 CÉGVÉD.hu
 </footer>
 
 </body>
