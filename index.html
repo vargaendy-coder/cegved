@@ -18,13 +18,13 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 60px;
+  padding:22px 60px;
   background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
 }
 
 .logo img {
-  height:50px;
+  height:60px;
 }
 
 .nav {
@@ -42,10 +42,16 @@ header {
 .cta-btn {
   background:#f97316;
   color:white;
-  padding:12px 22px;
-  border-radius:10px;
+  padding:14px 26px;
+  border-radius:12px;
   text-decoration:none;
   font-weight:600;
+  box-shadow:0 10px 25px rgba(249,115,22,0.3);
+  transition:0.3s;
+}
+
+.cta-btn:hover {
+  transform:translateY(-2px);
 }
 
 /* HERO */
@@ -53,17 +59,21 @@ header {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:100px 60px;
+  padding:120px 60px;
   background:linear-gradient(135deg,#ffffff,#eaf2ff);
+  position:relative;
+  overflow:hidden;
 }
 
 .hero-left {
   max-width:600px;
+  z-index:2;
 }
 
 .hero h1 {
-  font-size:46px;
-  line-height:1.2;
+  font-size:52px;
+  line-height:1.15;
+  font-weight:700;
 }
 
 .hero p {
@@ -76,62 +86,93 @@ header {
   margin-top:30px;
   display:inline-block;
   background:#f97316;
-  padding:14px 26px;
-  border-radius:10px;
+  padding:16px 30px;
+  border-radius:12px;
   color:white;
   text-decoration:none;
   font-weight:600;
+  box-shadow:0 10px 30px rgba(249,115,22,0.35);
+  transition:0.3s;
+}
+
+.hero-btn:hover {
+  transform:translateY(-3px);
+}
+
+/* LOGO WATERMARK */
+.hero-right {
+  position:absolute;
+  right:80px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 .hero-right img {
-  max-width:500px;
-  opacity:0.08;
+  width:550px;
+  opacity:0.12;
+  filter:blur(1px);
 }
 
 /* SECTION */
 .section {
-  padding:80px 20px;
+  padding:100px 20px;
   text-align:center;
 }
 
+/* CARDS */
 .cards {
   display:flex;
   justify-content:center;
   gap:25px;
   flex-wrap:wrap;
-  margin-top:40px;
+  margin-top:50px;
 }
 
 .card {
   background:white;
-  padding:25px;
-  border-radius:15px;
+  padding:28px;
+  border-radius:18px;
   width:280px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  box-shadow:0 15px 40px rgba(0,0,0,0.05);
   text-align:left;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
 }
 
 /* CTA BOX */
 .cta-box {
   background:#eaf2ff;
-  padding:30px;
-  border-radius:15px;
-  margin-top:40px;
+  padding:40px;
+  border-radius:20px;
+  margin-top:50px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
 /* FORM */
+.form {
+  margin-top:30px;
+}
+
 .form input {
-  padding:14px;
+  padding:16px;
   margin:10px;
   width:260px;
-  border-radius:10px;
-  border:1px solid #ccc;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+
+.form button {
+  margin-top:15px;
 }
 
 /* FOOTER */
 footer {
   text-align:center;
-  padding:30px;
+  padding:40px;
   font-size:13px;
   color:#64748b;
 }
@@ -171,24 +212,12 @@ footer {
   <p>Egyetlen váratlan esemény is több milliós kárt okozhat</p>
 
   <div class="cards">
-    <div class="card">
-      ✔ Van felelősségbiztosítása?
-    </div>
-    <div class="card">
-      ✔ Védett a telephelye?
-    </div>
-    <div class="card">
-      ✔ Kieső bevétel biztosítva?
-    </div>
-    <div class="card">
-      ✔ Vezetői felelősségbiztosítás?
-    </div>
-    <div class="card">
-      ✔ Munkavállalók egészség- és életbiztosítása?
-    </div>
-    <div class="card">
-      ✔ Tulajdonosok biztosítása?
-    </div>
+    <div class="card">✔ Van felelősségbiztosítása?</div>
+    <div class="card">✔ Védett a telephelye?</div>
+    <div class="card">✔ Kieső bevétel biztosítva?</div>
+    <div class="card">✔ Vezetői felelősségbiztosítás?</div>
+    <div class="card">✔ Munkavállalók egészség- és életbiztosítása?</div>
+    <div class="card">✔ Tulajdonosok biztosítása?</div>
   </div>
 
   <div class="cta-box">
