@@ -6,129 +6,123 @@
 <title>CÉGVÉD.hu</title>
 
 <style>
-body {
+body{
   margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#f4f7fb;
+  font-family:'Segoe UI',sans-serif;
+  background:#eef2f7;
+  color:#0f172a;
 }
 
 /* HEADER */
-header {
+header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 60px;
+  padding:24px 60px;
   background:white;
+  box-shadow:0 8px 30px rgba(0,0,0,0.05);
 }
 
-.logo img { height:90px; }
+.logo img{height:80px;}
 
-.cta-btn {
+.cta{
   background:#f97316;
   color:white;
-  padding:14px 24px;
+  padding:14px 26px;
   border-radius:12px;
+  font-weight:600;
   cursor:pointer;
-  font-weight:bold;
 }
 
 /* HERO */
-.hero {
+.hero{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   min-height:90vh;
 }
 
-/* ÜZEM KÉP */
-.hero-image {
-  background-image: url("uzem.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #e5e7eb;
+/* BAL KÉP */
+.hero-image{
+  background:url("uzem.jpg") center/contain no-repeat;
+  background-color:#e5e7eb;
 }
 
 /* JOBB OLDAL */
-.hero-content {
-  padding:60px;
+.hero-content{
+  padding:80px;
   position:relative;
   background:linear-gradient(135deg,#f8fbff,#dbeafe);
 }
 
-.hero h1 {
+.hero h1{
   font-size:48px;
+  line-height:1.2;
 }
 
-.hero p {
+.hero p{
+  margin-top:20px;
   color:#334155;
 }
 
 /* GOMB */
-.cta-big {
-  margin-top:20px;
+.hero-btn{
+  margin-top:30px;
   display:inline-block;
-  padding:14px 28px;
+  padding:16px 30px;
   background:#f97316;
   color:white;
   border-radius:12px;
+  font-weight:600;
   cursor:pointer;
-  font-weight:bold;
   position:relative;
   z-index:5;
 }
 
 /* LOGÓ */
-.hero-logo {
+.hero-logo{
   position:absolute;
-  right:30px;
-  bottom:30px;
+  right:40px;
+  bottom:40px;
   z-index:1;
 }
 
-.hero-logo img {
-  width:300px;
-  opacity:0.2;
+.hero-logo img{
+  width:280px;
+  opacity:0.25;
 }
 
 /* POPUP */
-#popup {
+#popup{
   display:none;
   position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.6);
   justify-content:center;
   align-items:center;
 }
 
-.popup-box {
+.popup{
   background:white;
-  width:90%;
-  max-width:500px;
-  padding:30px;
+  padding:40px;
   border-radius:20px;
+  max-width:500px;
+  width:90%;
   text-align:center;
 }
 
-.popup-btn {
+.popup button{
   margin:10px;
-  padding:14px 24px;
-  border-radius:10px;
+  padding:12px 24px;
   border:none;
-  font-weight:bold;
+  border-radius:10px;
+  font-weight:600;
   cursor:pointer;
 }
 
-.yes { background:#16a34a; color:white; }
-.no { background:#dc2626; color:white; }
-
-.close {
-  margin-top:20px;
-  display:block;
-  color:#64748b;
-  cursor:pointer;
-}
+.yes{background:#16a34a;color:white;}
+.no{background:#dc2626;color:white;}
+.close{margin-top:20px;display:block;color:#64748b;cursor:pointer;}
 </style>
 </head>
 
@@ -136,7 +130,7 @@ header {
 
 <header>
   <div class="logo"><img src="logo.png"></div>
-  <div class="cta-btn" onclick="openPopup()">Kockázati felmérés</div>
+  <div class="cta" onclick="openPopup()">Kockázati felmérés</div>
 </header>
 
 <section class="hero">
@@ -146,9 +140,9 @@ header {
   <div class="hero-content">
     <h1>Megvédjük vállalkozását a váratlan károktól</h1>
 
-    <p>Személyre szabott biztosítás cégeknek</p>
+    <p>Személyre szabott biztosítási megoldások cégeknek – egyszerűen, érthetően</p>
 
-    <div class="cta-big" onclick="openPopup()">Indítás</div>
+    <div class="hero-btn" onclick="openPopup()">Felmérés indítása</div>
 
     <div class="hero-logo">
       <img src="logo.png">
@@ -159,14 +153,14 @@ header {
 
 <!-- POPUP -->
 <div id="popup">
-  <div class="popup-box">
+  <div class="popup">
 
-    <h2 id="question"></h2>
+    <h2 id="q"></h2>
 
-    <button class="popup-btn yes" onclick="next(1)">Igen</button>
-    <button class="popup-btn no" onclick="next(0)">Nincs</button>
+    <button class="yes" onclick="next(1)">Igen</button>
+    <button class="no" onclick="next(0)">Nincs</button>
 
-    <div id="result"></div>
+    <div id="res"></div>
 
     <span class="close" onclick="closePopup()">Bezárás</span>
 
@@ -174,10 +168,9 @@ header {
 </div>
 
 <script>
-let step=0;
-let score=0;
+let i=0, score=0;
 
-const q=[
+const questions=[
 "Van felelősségbiztosítása?",
 "Van telephely vagyonbiztosítása?",
 "Van gépbiztosítás?",
@@ -189,9 +182,8 @@ const q=[
 
 function openPopup(){
  document.getElementById("popup").style.display="flex";
- step=0;
- score=0;
- document.getElementById("result").innerHTML="";
+ i=0; score=0;
+ document.getElementById("res").innerHTML="";
  show();
 }
 
@@ -200,23 +192,27 @@ function closePopup(){
 }
 
 function show(){
- document.getElementById("question").innerText=q[step];
+ document.getElementById("q").innerText=questions[i];
 }
 
 function next(v){
  score+=v;
- step++;
+ i++;
 
- if(step<q.length){
+ if(i<questions.length){
    show();
- } else {
-   let t="";
-   if(score>=6) t="Védelme kiváló, de érdemes felülvizsgálni.";
-   else if(score>=3) t="Közepes kockázat.";
-   else t="Magas kockázat!";
+ }else{
+   let text="";
+   if(score>=6){
+     text="Az Önök védelme kiváló, de érdemes időnként felülvizsgálni.";
+   }else if(score>=3){
+     text="A vállalkozás közepes kockázatnak van kitéve.";
+   }else{
+     text="A vállalkozás jelentős kockázatnak van kitéve.";
+   }
 
-   document.getElementById("question").innerText="Eredmény";
-   document.getElementById("result").innerHTML="<p>"+t+"</p>";
+   document.getElementById("q").innerText="Eredmény";
+   document.getElementById("res").innerHTML="<p>"+text+"</p>";
  }
 }
 </script>
