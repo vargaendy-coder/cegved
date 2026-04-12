@@ -26,13 +26,7 @@ body{
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to right,
-    rgba(10,40,80,0.95) 0%,
-    rgba(10,40,80,0.85) 40%,
-    rgba(10,40,80,0.4) 70%,
-    rgba(10,40,80,0.05) 100%
-  );
+  background:linear-gradient(to right, rgba(10,40,80,0.95), rgba(10,40,80,0.3));
 }
 
 /* HEADER */
@@ -47,7 +41,6 @@ body{
   margin:auto;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:25px;
 }
 
@@ -85,10 +78,6 @@ body{
   font-size:56px;
 }
 
-.hero p{
-  margin-top:20px;
-}
-
 .hero-btn{
   margin-top:30px;
   display:inline-block;
@@ -110,28 +99,25 @@ body{
   gap:40px;
 }
 
-/* LEFT */
-.test-left{
-  flex:2;
-}
-
-.test-left h2{
-  color:#1e3a8a;
-}
-
+/* LISTA */
 .checklist{
   list-style:none;
   padding:0;
-  margin-top:20px;
 }
 
 .checklist li{
   background:white;
-  padding:14px;
-  margin-bottom:10px;
-  border-radius:10px;
-  padding-left:40px;
+  padding:16px;
+  margin-bottom:12px;
+  border-radius:12px;
+  padding-left:45px;
   position:relative;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.checklist li:hover{
+  transform:translateX(5px);
 }
 
 .checklist li::before{
@@ -139,11 +125,11 @@ body{
   position:absolute;
   left:15px;
   color:#16a34a;
+  font-weight:bold;
 }
 
-/* RIGHT CARD */
+/* CARD */
 .test-card{
-  flex:1;
   background:linear-gradient(135deg,#1e3a8a,#1e40af);
   color:white;
   padding:30px;
@@ -157,74 +143,132 @@ body{
   border-radius:10px;
   text-align:center;
 }
-</style>
 
+/* POPUP */
+#infoPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+}
+
+.popup-content{
+  background:white;
+  max-width:500px;
+  padding:30px;
+  border-radius:16px;
+  text-align:center;
+}
+
+.close{
+  margin-top:20px;
+  cursor:pointer;
+  color:#64748b;
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
 
 <div class="header">
   <div class="header-inner">
-
-    <div class="logo">
-      <img src="logo.png">
-    </div>
-
+    <div class="logo"><img src="logo.png"></div>
     <div class="nav">
       <a href="#">Főoldal</a>
       <a href="#">Szolgáltatások</a>
-      <a href="#">Kockázat Teszt</a>
-      <a href="#">Esettanulmányok</a>
+      <a href="#">Teszt</a>
+      <a href="#">Kapcsolat</a>
       <a href="#" class="cta">Ingyenes konzultáció</a>
     </div>
-
   </div>
 </div>
 
 <div class="hero-content">
   <h1>Megvédjük vállalkozását a váratlan károktól</h1>
-
-  <p>Személyre szabott biztosítási megoldások cégeknek</p>
-
   <div class="hero-btn">Kockázat Felmérés</div>
 </div>
-
 </section>
 
 <!-- TEST -->
 <section class="test-section">
-
 <div class="test-container">
 
-<div class="test-left">
-  <h2>Ingyenes Vállalkozás Biztosítási Kockázat Teszt</h2>
+<div>
+  <h2>Kattintson és nézze meg miért fontos</h2>
 
   <ul class="checklist">
-    <li>Van felelősségbiztosítás?</li>
-    <li>Van vagyonbiztosítás?</li>
-    <li>Van üzemszünet biztosítás?</li>
-    <li>Van vezetői biztosítás?</li>
-    <li>Van kiberbiztosítás?</li>
-    <li>Van üzembiztonsági terv?</li>
+    <li onclick="openInfo('f1')">Van felelősségbiztosítása?</li>
+    <li onclick="openInfo('f2')">Van vagyonbiztosítása?</li>
+    <li onclick="openInfo('f3')">Van üzemszünet biztosítás?</li>
+    <li onclick="openInfo('f4')">Van vezetői biztosítás?</li>
+    <li onclick="openInfo('f5')">Van kiberbiztosítás?</li>
+    <li onclick="openInfo('f6')">Van üzembiztonsági terve?</li>
   </ul>
 </div>
 
 <div class="test-card">
-  <h3>Cégkockázat Teszt 2 perc alatt!</h3>
-  <p>Mennyire védett a cége?</p>
-
+  <h3>Cégkockázat Teszt</h3>
+  <p>2 perc alatt eredmény</p>
   <div class="start-btn">Indítás →</div>
 </div>
 
 </div>
-
 </section>
+
+<!-- POPUP -->
+<div id="infoPopup">
+  <div class="popup-content">
+    <h3 id="popupTitle"></h3>
+    <p id="popupText"></p>
+    <div class="close" onclick="closePopup()">Bezárás</div>
+  </div>
+</div>
+
+<script>
+const data = {
+  f1: {
+    title:"Felelősségbiztosítás",
+    text:"Ha egy hiba miatt kárt okoz, a biztosítás megvédi a vállalkozását a több milliós követelésektől."
+  },
+  f2: {
+    title:"Vagyonbiztosítás",
+    text:"Tűz, betörés vagy természeti károk esetén segít újraindítani a működést."
+  },
+  f3: {
+    title:"Üzemszünet biztosítás",
+    text:"Bevételkiesés esetén is biztosítja a vállalkozás fennmaradását."
+  },
+  f4: {
+    title:"Vezetői biztosítás",
+    text:"Megvédi a tulajdonosokat és vezetőket személyes felelősségi kockázatoktól."
+  },
+  f5: {
+    title:"Kiberbiztosítás",
+    text:"Adatvesztés vagy hacker támadás esetén jelentős károkat fedez."
+  },
+  f6: {
+    title:"Üzembiztonság",
+    text:"Egy előre kidolgozott terv csökkenti a leállás és károk esélyét."
+  }
+};
+
+function openInfo(id){
+  document.getElementById("popupTitle").innerText = data[id].title;
+  document.getElementById("popupText").innerText = data[id].text;
+  document.getElementById("infoPopup").style.display="flex";
+}
+
+function closePopup(){
+  document.getElementById("infoPopup").style.display="none";
+}
+</script>
 
 </body>
 </html>
