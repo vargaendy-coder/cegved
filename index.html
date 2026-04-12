@@ -6,196 +6,104 @@
 <title>CÉGVÉD.hu</title>
 
 <style>
-body{
-  margin:0;
-  font-family:'Segoe UI', sans-serif;
-}
+body{margin:0;font-family:'Segoe UI', sans-serif;}
 
 /* HERO */
-.hero{
-  height:90vh;
-  position:relative;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background:url("uzem.jpg") center/cover no-repeat;
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to right, rgba(10,40,80,0.95), rgba(10,40,80,0.3));
-}
+.hero{height:90vh;position:relative;}
+.hero-bg{position:absolute;inset:0;background:url("uzem.jpg") center/cover no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right, rgba(10,40,80,0.95), rgba(10,40,80,0.3));}
 
 /* HEADER */
-.header{
-  position:absolute;
-  width:100%;
-  z-index:10;
-}
-
-.header-inner{
-  max-width:1400px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  padding:25px;
-}
-
-.logo img{
-  height:110px;
-}
-
-.nav{
-  display:flex;
-  gap:30px;
-}
-
-.nav a{
-  color:white;
-  text-decoration:none;
-}
-
-.cta{
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  padding:12px 20px;
-  border-radius:10px;
-  color:white;
-}
+.header{position:absolute;width:100%;z-index:10;}
+.header-inner{max-width:1400px;margin:auto;display:flex;justify-content:space-between;padding:25px;}
+.logo img{height:110px;}
+.nav{display:flex;gap:30px;}
+.nav a{color:white;text-decoration:none;}
+.cta{background:linear-gradient(135deg,#f97316,#ea580c);padding:12px 20px;border-radius:10px;color:white;}
 
 /* HERO TEXT */
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:700px;
-  padding:180px 40px;
-  color:white;
-}
-
-.hero h1{
-  font-size:56px;
-}
-
-.hero-btn{
-  margin-top:30px;
-  display:inline-block;
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  padding:18px 34px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(249,115,22,0.5);
-}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:180px 40px;color:white;}
+.hero h1{font-size:56px;}
+.hero-btn{margin-top:30px;display:inline-block;background:#f97316;padding:18px 34px;border-radius:12px;cursor:pointer;}
 
 /* TEST SECTION */
-.test-section{
-  background:#eef2f7;
-  padding:80px 20px;
-}
-
-.test-container{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  gap:40px;
-}
+.test-section{background:#eef2f7;padding:80px 20px;}
+.test-container{max-width:1200px;margin:auto;display:flex;gap:40px;}
 
 /* LISTA */
-.checklist{
-  list-style:none;
-  padding:0;
-}
-
+.checklist{list-style:none;padding:0;}
 .checklist li{
-  background:white;
-  padding:18px;
-  margin-bottom:14px;
-  border-radius:14px;
-  padding-left:50px;
-  position:relative;
-  cursor:pointer;
-
-  box-shadow:0 8px 25px rgba(0,0,0,0.06);
-  border:1px solid #e2e8f0;
-
-  transition:0.2s;
+background:white;padding:18px;margin-bottom:14px;border-radius:14px;padding-left:50px;
+position:relative;cursor:pointer;
+box-shadow:0 8px 25px rgba(0,0,0,0.06);
 }
-
-.checklist li:hover{
-  transform:translateX(6px);
-  box-shadow:0 12px 30px rgba(0,0,0,0.1);
-}
-
 .checklist li::before{
-  content:"✔";
-  position:absolute;
-  left:18px;
-  color:#16a34a;
-  font-weight:bold;
+content:"✔";position:absolute;left:18px;color:#16a34a;font-weight:bold;
 }
 
-/* JOBB OLDAL */
-.right{
-  flex:1;
-  display:flex;
-  align-items:center;
-}
-
-/* KÁRTYA */
+/* JOBB */
+.right{flex:1;display:flex;align-items:center;}
 .side-card{
-  background:linear-gradient(135deg,#1e3a8a,#1e40af);
-  color:white;
-  padding:40px;
-  border-radius:20px;
-
-  box-shadow:0 25px 60px rgba(0,0,0,0.25);
-
-  margin-top:60px;
+background:linear-gradient(135deg,#1e3a8a,#1e40af);
+color:white;padding:40px;border-radius:20px;
 }
-
-.side-card h3{
-  font-size:22px;
-}
-
-.side-card ul{
-  margin-top:20px;
-  line-height:1.6;
-}
-
-/* GOMB */
 .side-btn{
-  margin-top:30px;
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  padding:18px;
-  border-radius:14px;
-  text-align:center;
-  font-weight:700;
-
-  box-shadow:0 10px 30px rgba(249,115,22,0.5);
+margin-top:30px;background:#f97316;padding:18px;border-radius:14px;cursor:pointer;
 }
 
 /* POPUP */
 #infoPopup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
+display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);
+justify-content:center;align-items:center;
 }
-
 .popup-content{
-  background:white;
-  max-width:500px;
-  padding:30px;
-  border-radius:16px;
-  text-align:center;
+background:white;padding:30px;border-radius:16px;max-width:500px;
 }
 
-.close{
-  margin-top:20px;
-  cursor:pointer;
-  color:#64748b;
+/* TEST */
+#testScreen{display:none;padding:120px 20px;text-align:center;}
+.answer-btn{
+padding:16px 28px;margin:10px;border-radius:10px;cursor:pointer;
+}
+.yes{background:#16a34a;color:white;}
+.no{background:#dc2626;color:white;}
+
+/* RESULT */
+#result{
+display:none;
+padding:100px 20px;
+text-align:center;
+background:#f8fafc;
+}
+
+.shields{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+}
+
+.shield{
+opacity:0.3;
+transition:0.3s;
+}
+
+.shield img{
+width:140px;
+}
+
+.shield.active{
+opacity:1;
+transform:scale(1.2);
+}
+
+.cta-main{
+margin-top:30px;
+background:#f97316;
+padding:16px 30px;
+border-radius:12px;
+display:inline-block;
+color:white;
 }
 </style>
 </head>
@@ -203,31 +111,30 @@ body{
 <body>
 
 <section class="hero">
-
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
 
 <div class="header">
-  <div class="header-inner">
-    <div class="logo"><img src="logo.png"></div>
-    <div class="nav">
-      <a href="#">Főoldal</a>
-      <a href="#">Szolgáltatások</a>
-      <a href="#">Teszt</a>
-      <a href="#">Kapcsolat</a>
-      <a href="#" class="cta">Ingyenes konzultáció</a>
-    </div>
-  </div>
+<div class="header-inner">
+<div class="logo"><img src="logo.png"></div>
+<div class="nav">
+<a href="#">Főoldal</a>
+<a href="#">Szolgáltatások</a>
+<a href="#">Teszt</a>
+<a href="#">Kapcsolat</a>
+<a href="#" class="cta">Ingyenes konzultáció</a>
+</div>
+</div>
 </div>
 
 <div class="hero-content">
-  <h1>Megvédjük vállalkozását a váratlan károktól</h1>
-  <div class="hero-btn">Kockázat Felmérés</div>
+<h1>Megvédjük vállalkozását a váratlan károktól</h1>
+<div class="hero-btn" onclick="scrollToTest()">Kockázat Felmérés</div>
 </div>
 
 </section>
 
-<section class="test-section">
+<section class="test-section" id="infoSection">
 
 <div class="test-container">
 
@@ -247,22 +154,11 @@ body{
 </div>
 
 <div class="right">
-
 <div class="side-card">
 <h3>2 perc alatt kiderül</h3>
-
 <p>Mennyire van biztonságban a cége?</p>
-
-<ul>
-<li>Rejtett kockázatok feltárása</li>
-<li>Azonnali visszajelzés</li>
-<li>Szakértői javaslat</li>
-</ul>
-
-<div class="side-btn">Teszt indítása →</div>
-
+<div class="side-btn" onclick="startTest()">Teszt indítása →</div>
 </div>
-
 </div>
 
 </div>
@@ -270,31 +166,116 @@ body{
 </section>
 
 <div id="infoPopup">
-  <div class="popup-content">
-    <h3 id="popupTitle"></h3>
-    <p id="popupText"></p>
-    <div class="close" onclick="closePopup()">Bezárás</div>
-  </div>
+<div class="popup-content">
+<h3 id="popupTitle"></h3>
+<p id="popupText"></p>
+<button onclick="closePopup()">Bezárás</button>
+</div>
 </div>
 
+<section id="testScreen">
+<h2 id="question"></h2>
+<button class="answer-btn yes" onclick="answer(1)">Igen</button>
+<button class="answer-btn no" onclick="answer(0)">Nem</button>
+</section>
+
+<section id="result">
+<h2>Az Ön eredménye</h2>
+
+<div class="shields">
+<div class="shield" id="good">
+<img src="kepek/kek.png">
+<p>Jól védett</p>
+</div>
+
+<div class="shield" id="medium">
+<img src="kepek/narancs.png">
+<p>Közepes kockázat</p>
+</div>
+
+<div class="shield" id="bad">
+<img src="kepek/piros.png">
+<p>Magas kockázat</p>
+</div>
+</div>
+
+<p id="resText"></p>
+
+<div class="cta-main">Ingyenes konzultáció →</div>
+</section>
+
 <script>
-const data = {
-f1:{title:"Felelősségbiztosítás",text:"Ha egy hiba miatt kárt okoz, több milliós követelésektől védi a céget."},
-f2:{title:"Vagyonbiztosítás",text:"Tűz vagy betörés esetén segít újraindulni."},
-f3:{title:"Üzemszünet",text:"Bevételkiesést kompenzál."},
-f4:{title:"Vezetői biztosítás",text:"Vezetők személyes kockázatait védi."},
-f5:{title:"Kiberbiztosítás",text:"Adatvesztés és támadások ellen."},
-f6:{title:"Üzembiztonság",text:"Csökkenti a leállás esélyét."}
+function scrollToTest(){
+document.getElementById("infoSection").scrollIntoView({behavior:"smooth"});
+}
+
+const data={
+f1:{title:"Felelősségbiztosítás",text:"Kártérítési igények ellen védi a céget."},
+f2:{title:"Vagyonbiztosítás",text:"Tűz és károk ellen véd."},
+f3:{title:"Üzemszünet",text:"Bevételkiesést fedez."},
+f4:{title:"Vezetői biztosítás",text:"Tulajdonosokat védi."},
+f5:{title:"Kiberbiztosítás",text:"Hackertámadás ellen."},
+f6:{title:"Üzembiztonság",text:"Leállás kockázatát csökkenti."}
 };
 
 function openInfo(id){
-document.getElementById("popupTitle").innerText=data[id].title;
-document.getElementById("popupText").innerText=data[id].text;
-document.getElementById("infoPopup").style.display="flex";
+popupTitle.innerText=data[id].title;
+popupText.innerText=data[id].text;
+infoPopup.style.display="flex";
+}
+function closePopup(){
+infoPopup.style.display="none";
 }
 
-function closePopup(){
-document.getElementById("infoPopup").style.display="none";
+let q=[
+"Van felelősségbiztosítása?",
+"Van vagyonbiztosítása?",
+"Van üzemszünet biztosítás?",
+"Van vezetői biztosítása?",
+"Van kiberbiztosítása?",
+"Van üzembiztonsági terve?"
+];
+
+let step=0;
+let score=0;
+
+function startTest(){
+infoSection.style.display="none";
+testScreen.style.display="block";
+showQ();
+}
+
+function showQ(){
+question.innerText=q[step];
+}
+
+function answer(v){
+score+=v;
+step++;
+
+if(step<q.length){
+showQ();
+}else{
+showResult();
+}
+}
+
+function showResult(){
+testScreen.style.display="none";
+result.style.display="block";
+
+if(score>=5){
+good.classList.add("active");
+resText.innerText="Védelme kiváló.";
+}
+else if(score>=3){
+medium.classList.add("active");
+resText.innerText="Közepes kockázat.";
+}
+else{
+bad.classList.add("active");
+resText.innerText="Magas kockázat.";
+}
 }
 </script>
 
