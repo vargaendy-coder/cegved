@@ -6,27 +6,65 @@
 <title>CÉGVÉD.hu</title>
 
 <style>
-body{margin:0;font-family:'Segoe UI',sans-serif;}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f1f5f9;}
 
 /* HERO */
-.hero{height:60vh;position:relative;}
-.hero-bg{position:absolute;inset:0;background:url("uzem.jpg") center/cover no-repeat;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,40,80,0.9),rgba(10,40,80,0.3));}
-.hero-content{position:relative;color:white;padding:120px 40px;}
-.hero h1{font-size:48px;}
+.hero{
+height:65vh;
+position:relative;
+overflow:hidden;
+}
+.hero-bg{
+position:absolute;
+inset:0;
+background:url("uzem.jpg") center/cover no-repeat;
+}
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to right,rgba(10,40,80,0.9),rgba(10,40,80,0.3));
+}
+.hero-content{
+position:relative;
+z-index:2;
+color:white;
+padding:140px 60px;
+max-width:800px;
+}
+.hero h1{
+font-size:48px;
+line-height:1.2;
+}
 
 /* SECTION */
-.section{padding:80px 20px;background:#eef2f7;}
-.container{max-width:1200px;margin:auto;display:flex;gap:40px;}
+.section{
+padding:80px 20px;
+}
+.container{
+max-width:1200px;
+margin:auto;
+display:flex;
+gap:40px;
+align-items:flex-start;
+}
 
 /* LISTA */
+.checklist{
+list-style:none;
+padding:0;
+margin-top:20px;
+}
 .checklist li{
-background:white;
-padding:18px;
-margin-bottom:12px;
-border-radius:12px;
+background:#ffffff;
+padding:18px 22px;
+margin-bottom:14px;
+border-radius:14px;
 cursor:pointer;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+transition:0.2s;
+}
+.checklist li:hover{
+transform:translateX(5px);
 }
 
 /* JOBB KÁRTYA */
@@ -35,20 +73,20 @@ background:linear-gradient(135deg,#1e3a8a,#1e40af);
 color:white;
 padding:40px;
 border-radius:20px;
-margin-top:60px;
-box-shadow:0 20px 50px rgba(0,0,0,0.2);
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+position:sticky;
+top:80px;
 }
 
-/* BUTTON */
-.btn{
-padding:12px 20px;
-margin-top:20px;
-border-radius:10px;
-cursor:pointer;
+.start-btn{
+margin-top:25px;
+background:#f97316;
+padding:14px 24px;
+border-radius:12px;
 display:inline-block;
+cursor:pointer;
+font-weight:600;
 }
-
-.start{background:#f97316;color:white;}
 
 /* POPUP */
 #popup{
@@ -58,8 +96,8 @@ inset:0;
 background:rgba(0,0,0,0.6);
 justify-content:center;
 align-items:center;
+z-index:999;
 }
-
 .popup-box{
 background:white;
 padding:30px;
@@ -71,25 +109,28 @@ text-align:center;
 /* TEST */
 #testScreen{
 display:none;
-padding:60px;
+padding:100px 20px;
 text-align:center;
 }
-
+.question{
+font-size:28px;
+margin-bottom:30px;
+}
 .answer-btn{
-padding:14px 26px;
+padding:16px 30px;
 margin:10px;
-border-radius:10px;
+border-radius:12px;
 cursor:pointer;
 font-weight:600;
+font-size:16px;
 }
-
 .yes{background:#16a34a;color:white;}
 .no{background:#dc2626;color:white;}
 
 /* RESULT */
 #result{
 display:none;
-padding:80px 20px;
+padding:100px 20px;
 text-align:center;
 background:#f8fafc;
 }
@@ -99,17 +140,17 @@ display:flex;
 justify-content:center;
 gap:40px;
 margin-top:40px;
+flex-wrap:wrap;
 }
 
 .shield{
-padding:20px;
-border-radius:16px;
-opacity:0.4;
+padding:25px;
+border-radius:18px;
+opacity:0.35;
 transition:0.3s;
 }
-
 .shield img{
-width:100px;
+width:110px;
 }
 
 .shield.active{
@@ -124,12 +165,12 @@ font-size:18px;
 }
 
 .cta-main{
-margin-top:30px;
+margin-top:35px;
 background:#f97316;
-padding:16px 30px;
+padding:16px 32px;
 border-radius:12px;
-color:white;
 display:inline-block;
+color:white;
 font-weight:600;
 cursor:pointer;
 }
@@ -173,7 +214,7 @@ cursor:pointer;
 <h3>2 perc alatt kiderül</h3>
 <p>Mennyire védett a cége?</p>
 
-<div class="btn start" onclick="startTest()">Teszt indítása →</div>
+<div class="start-btn" onclick="startTest()">Teszt indítása →</div>
 
 </div>
 
@@ -188,6 +229,7 @@ cursor:pointer;
 <div class="popup-box">
 <h3 id="title"></h3>
 <p id="text"></p>
+<br>
 <button onclick="closePopup()">Bezárás</button>
 </div>
 </div>
@@ -195,7 +237,7 @@ cursor:pointer;
 <!-- TESZT -->
 <div id="testScreen">
 
-<h2 id="question"></h2>
+<div class="question" id="question"></div>
 
 <div>
 <button class="answer-btn yes" onclick="answer(1)">Igen</button>
@@ -238,12 +280,12 @@ Ingyenes konzultáció →
 
 <script>
 const info={
-f1:{t:"Felelősségbiztosítás",d:"Megvédi a céget a kártérítési igényektől."},
+f1:{t:"Felelősségbiztosítás",d:"Kártérítési igények ellen védi a céget."},
 f2:{t:"Vagyonbiztosítás",d:"Tűz, betörés ellen véd."},
 f3:{t:"Üzemszünet",d:"Bevételkiesést fedez."},
 f4:{t:"Vezetői biztosítás",d:"Tulajdonosokat védi."},
 f5:{t:"Kiberbiztosítás",d:"Hackertámadás ellen."},
-f6:{t:"Üzembiztonság",d:"Leállást csökkent."}
+f6:{t:"Üzembiztonság",d:"Leállás kockázatát csökkenti."}
 };
 
 function openInfo(id){
