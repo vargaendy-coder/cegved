@@ -13,6 +13,7 @@ body{margin:0;font-family:'Segoe UI',sans-serif;}
 .hero-bg{position:absolute;inset:0;background:url("uzem.jpg") center/cover no-repeat;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,40,80,0.9),rgba(10,40,80,0.3));}
 .hero-content{position:relative;color:white;padding:120px 40px;}
+.hero h1{font-size:48px;}
 
 /* SECTION */
 .section{padding:80px 20px;background:#eef2f7;}
@@ -25,6 +26,7 @@ padding:18px;
 margin-bottom:12px;
 border-radius:12px;
 cursor:pointer;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
 }
 
 /* JOBB KÁRTYA */
@@ -34,7 +36,19 @@ color:white;
 padding:40px;
 border-radius:20px;
 margin-top:60px;
+box-shadow:0 20px 50px rgba(0,0,0,0.2);
 }
+
+/* BUTTON */
+.btn{
+padding:12px 20px;
+margin-top:20px;
+border-radius:10px;
+cursor:pointer;
+display:inline-block;
+}
+
+.start{background:#f97316;color:white;}
 
 /* POPUP */
 #popup{
@@ -51,20 +65,22 @@ background:white;
 padding:30px;
 border-radius:16px;
 max-width:500px;
+text-align:center;
 }
 
-/* TEST SCREEN */
+/* TEST */
 #testScreen{
 display:none;
 padding:60px;
 text-align:center;
 }
 
-.btn{
-padding:10px 20px;
+.answer-btn{
+padding:14px 26px;
 margin:10px;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
+font-weight:600;
 }
 
 .yes{background:#16a34a;color:white;}
@@ -73,8 +89,49 @@ cursor:pointer;
 /* RESULT */
 #result{
 display:none;
-padding:60px;
+padding:80px 20px;
 text-align:center;
+background:#f8fafc;
+}
+
+.shields{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+}
+
+.shield{
+padding:20px;
+border-radius:16px;
+opacity:0.4;
+transition:0.3s;
+}
+
+.shield img{
+width:100px;
+}
+
+.shield.active{
+opacity:1;
+transform:scale(1.15);
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+}
+
+.res-text{
+margin-top:25px;
+font-size:18px;
+}
+
+.cta-main{
+margin-top:30px;
+background:#f97316;
+padding:16px 30px;
+border-radius:12px;
+color:white;
+display:inline-block;
+font-weight:600;
+cursor:pointer;
 }
 </style>
 </head>
@@ -86,7 +143,7 @@ text-align:center;
 <div class="hero-bg"></div>
 <div class="hero-overlay"></div>
 <div class="hero-content">
-<h1>Megvédjük vállalkozását</h1>
+<h1>Megvédjük vállalkozását a váratlan károktól</h1>
 </div>
 </section>
 
@@ -102,7 +159,7 @@ text-align:center;
 <ul class="checklist">
 <li onclick="openInfo('f1')">Felelősségbiztosítás</li>
 <li onclick="openInfo('f2')">Vagyonbiztosítás</li>
-<li onclick="openInfo('f3')">Üzemszünet</li>
+<li onclick="openInfo('f3')">Üzemszünet biztosítás</li>
 <li onclick="openInfo('f4')">Vezetői biztosítás</li>
 <li onclick="openInfo('f5')">Kiberbiztosítás</li>
 <li onclick="openInfo('f6')">Üzembiztonság</li>
@@ -114,9 +171,9 @@ text-align:center;
 
 <div class="card">
 <h3>2 perc alatt kiderül</h3>
-<p>Mennyire védett a cége</p>
+<p>Mennyire védett a cége?</p>
 
-<div class="btn yes" onclick="startTest()">Teszt indítása →</div>
+<div class="btn start" onclick="startTest()">Teszt indítása →</div>
 
 </div>
 
@@ -141,26 +198,52 @@ text-align:center;
 <h2 id="question"></h2>
 
 <div>
-<button class="btn yes" onclick="answer(1)">Igen</button>
-<button class="btn no" onclick="answer(0)">Nem</button>
+<button class="answer-btn yes" onclick="answer(1)">Igen</button>
+<button class="answer-btn no" onclick="answer(0)">Nem</button>
 </div>
 
 </div>
 
 <!-- RESULT -->
 <div id="result">
-<h2>Eredmény</h2>
-<p id="resText"></p>
+
+<h2>Az Ön eredménye</h2>
+
+<div class="shields">
+
+<div class="shield" id="good">
+<img src="logo.png">
+<p>Jól védett</p>
+</div>
+
+<div class="shield" id="medium">
+<img src="logo.png">
+<p>Közepes kockázat</p>
+</div>
+
+<div class="shield" id="bad">
+<img src="logo.png">
+<p>Magas kockázat</p>
+</div>
+
+</div>
+
+<p id="resText" class="res-text"></p>
+
+<div class="cta-main">
+Ingyenes konzultáció →
+</div>
+
 </div>
 
 <script>
 const info={
-f1:{t:"Felelősségbiztosítás",d:"Kártérítési igények ellen véd."},
-f2:{t:"Vagyonbiztosítás",d:"Tűz és károk ellen."},
-f3:{t:"Üzemszünet",d:"Bevételkiesés."},
-f4:{t:"Vezetői",d:"Személyes védelem."},
-f5:{t:"Kiber",d:"Hackertámadás ellen."},
-f6:{t:"Üzembiztonság",d:"Leállás csökkentése."}
+f1:{t:"Felelősségbiztosítás",d:"Megvédi a céget a kártérítési igényektől."},
+f2:{t:"Vagyonbiztosítás",d:"Tűz, betörés ellen véd."},
+f3:{t:"Üzemszünet",d:"Bevételkiesést fedez."},
+f4:{t:"Vezetői biztosítás",d:"Tulajdonosokat védi."},
+f5:{t:"Kiberbiztosítás",d:"Hackertámadás ellen."},
+f6:{t:"Üzembiztonság",d:"Leállást csökkent."}
 };
 
 function openInfo(id){
@@ -211,12 +294,22 @@ function showResult(){
 document.getElementById("testScreen").style.display="none";
 document.getElementById("result").style.display="block";
 
-let txt="";
-if(score>=5) txt="Kiváló védelem";
-else if(score>=3) txt="Közepes védelem";
-else txt="Magas kockázat";
+let text="";
 
-document.getElementById("resText").innerText=txt;
+if(score>=5){
+text="Az Ön védelme kiváló, de érdemes felülvizsgálni.";
+document.getElementById("good").classList.add("active");
+}
+else if(score>=3){
+text="Közepes védelem – több ponton fejleszthető.";
+document.getElementById("medium").classList.add("active");
+}
+else{
+text="Magas kockázat – sürgős lépések szükségesek.";
+document.getElementById("bad").classList.add("active");
+}
+
+document.getElementById("resText").innerText=text;
 }
 </script>
 
