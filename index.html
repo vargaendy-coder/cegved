@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CÉGVÉD.hu</title>
 
 <style>
@@ -11,6 +10,14 @@
 body{
   margin:0;
   font-family:'Segoe UI', sans-serif;
+  background:#f4f7fb;
+}
+
+/* KERET (EZ OLDJA MEG A KILÓGÁST) */
+.container{
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
 }
 
 /* HEADER */
@@ -19,15 +26,19 @@ body{
   top:0;
   left:0;
   width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 60px;
   z-index:10;
 }
 
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 40px;
+}
+
+/* LOGÓ NAGYOBB */
 .logo img{
-  height:60px;
+  height:90px;
 }
 
 /* NAV */
@@ -53,23 +64,27 @@ body{
 
 /* HERO */
 .hero{
-  height:90vh;
-  background:url("uzem.jpg") center/cover no-repeat;
+  height:85vh;
   position:relative;
-  display:flex;
-  align-items:center;
+  overflow:hidden;
+}
+
+/* KÉP */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url("uzem.jpg") center/cover no-repeat;
 }
 
 /* OVERLAY */
-.hero::after{
-  content:'';
+.hero-overlay{
   position:absolute;
   inset:0;
   background:linear-gradient(
     to right,
-    rgba(10,40,80,0.85) 0%,
-    rgba(10,40,80,0.75) 40%,
-    rgba(10,40,80,0.3) 70%,
+    rgba(10,40,80,0.9) 0%,
+    rgba(10,40,80,0.8) 40%,
+    rgba(10,40,80,0.4) 70%,
     rgba(10,40,80,0.1) 100%
   );
 }
@@ -78,13 +93,13 @@ body{
 .hero-content{
   position:relative;
   z-index:2;
-  color:white;
+  padding:140px 40px;
   max-width:700px;
-  margin-left:80px;
+  color:white;
 }
 
 .hero h1{
-  font-size:48px;
+  font-size:52px;
   line-height:1.2;
 }
 
@@ -110,35 +125,47 @@ body{
 
 <body>
 
-<header class="header">
-
-  <div class="logo">
-    <img src="logo.png">
-  </div>
-
-  <div class="nav">
-    <a href="#">Főoldal</a>
-    <a href="#">Szolgáltatások</a>
-    <a href="#">Kockázat Teszt</a>
-    <a href="#">Esettanulmányok</a>
-    <a href="#" class="cta">Ingyenes konzultáció</a>
-  </div>
-
-</header>
-
 <section class="hero">
 
-  <div class="hero-content">
-    <h1>Megvédjük vállalkozását<br>a váratlan károktól</h1>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
-    <p>
-      Személyre szabott biztosítási megoldások cégeknek –
-      egyszerűen, érthetően.
-    </p>
+  <div class="container">
 
-    <div class="hero-btn">
-      Kockázat Felmérés
+    <div class="header">
+      <div class="header-inner">
+
+        <div class="logo">
+          <img src="logo.png">
+        </div>
+
+        <div class="nav">
+          <a href="#">Főoldal</a>
+          <a href="#">Szolgáltatások</a>
+          <a href="#">Kockázat Teszt</a>
+          <a href="#">Esettanulmányok</a>
+          <a href="#" class="cta">Ingyenes konzultáció</a>
+        </div>
+
+      </div>
     </div>
+
+    <div class="hero-content">
+      <h1>
+        Megvédjük vállalkozását<br>
+        a váratlan károktól
+      </h1>
+
+      <p>
+        Személyre szabott biztosítási megoldások cégeknek –
+        egyszerűen, érthetően.
+      </p>
+
+      <div class="hero-btn">
+        Kockázat Felmérés
+      </div>
+    </div>
+
   </div>
 
 </section>
