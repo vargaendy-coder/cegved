@@ -6,80 +6,23 @@
 <title>CÉGVÉD.hu</title>
 
 <style>
-
 body{
   margin:0;
   font-family:'Segoe UI', sans-serif;
-}
-
-/* CONTAINER */
-.container{
-  max-width:1400px;
-  margin:0 auto;
-  position:relative;
-}
-
-/* HEADER (ERŐSEBB) */
-.header{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:10;
-  background:linear-gradient(to bottom, rgba(10,40,80,0.85), transparent);
-}
-
-.header-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:25px 40px;
-}
-
-/* LOGÓ MÉG NAGYOBB */
-.logo img{
-  height:110px;
-}
-
-/* NAV */
-.nav{
-  display:flex;
-  gap:35px;
-  align-items:center;
-}
-
-.nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-  font-size:16px;
-}
-
-/* CTA */
-.cta{
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  color:white;
-  padding:12px 22px;
-  border-radius:10px;
-  font-weight:600;
-  box-shadow:0 6px 20px rgba(249,115,22,0.4);
 }
 
 /* HERO */
 .hero{
   height:90vh;
   position:relative;
-  overflow:hidden;
 }
 
-/* BG */
 .hero-bg{
   position:absolute;
   inset:0;
   background:url("uzem.jpg") center/cover no-repeat;
 }
 
-/* OVERLAY (PONTOSABB) */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -92,88 +35,194 @@ body{
   );
 }
 
-/* CONTENT */
+/* HEADER */
+.header{
+  position:absolute;
+  width:100%;
+  z-index:10;
+}
+
+.header-inner{
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px;
+}
+
+.logo img{
+  height:110px;
+}
+
+.nav{
+  display:flex;
+  gap:30px;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+}
+
+.cta{
+  background:#f97316;
+  padding:12px 20px;
+  border-radius:10px;
+  color:white;
+}
+
+/* HERO TEXT */
 .hero-content{
   position:relative;
   z-index:2;
+  max-width:700px;
   padding:180px 40px;
-  max-width:720px;
   color:white;
 }
 
-/* HEADLINE */
 .hero h1{
   font-size:56px;
-  line-height:1.15;
-  font-weight:700;
 }
 
-/* SUBTEXT */
 .hero p{
-  margin-top:25px;
-  font-size:20px;
-  opacity:0.9;
+  margin-top:20px;
 }
 
-/* BUTTON */
 .hero-btn{
-  margin-top:35px;
+  margin-top:30px;
   display:inline-block;
-  background:linear-gradient(135deg,#f97316,#ea580c);
-  padding:18px 34px;
+  background:#f97316;
+  padding:16px 30px;
   border-radius:12px;
-  font-weight:700;
-  color:white;
-  box-shadow:0 10px 30px rgba(249,115,22,0.5);
 }
 
+/* TEST SECTION */
+.test-section{
+  background:#eef2f7;
+  padding:80px 20px;
+}
+
+.test-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+}
+
+/* LEFT */
+.test-left{
+  flex:2;
+}
+
+.test-left h2{
+  color:#1e3a8a;
+}
+
+.checklist{
+  list-style:none;
+  padding:0;
+  margin-top:20px;
+}
+
+.checklist li{
+  background:white;
+  padding:14px;
+  margin-bottom:10px;
+  border-radius:10px;
+  padding-left:40px;
+  position:relative;
+}
+
+.checklist li::before{
+  content:"✔";
+  position:absolute;
+  left:15px;
+  color:#16a34a;
+}
+
+/* RIGHT CARD */
+.test-card{
+  flex:1;
+  background:linear-gradient(135deg,#1e3a8a,#1e40af);
+  color:white;
+  padding:30px;
+  border-radius:16px;
+}
+
+.start-btn{
+  margin-top:20px;
+  background:#f97316;
+  padding:14px;
+  border-radius:10px;
+  text-align:center;
+}
 </style>
+
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
 
-  <div class="container">
+<div class="header">
+  <div class="header-inner">
 
-    <div class="header">
-      <div class="header-inner">
-
-        <div class="logo">
-          <img src="logo.png">
-        </div>
-
-        <div class="nav">
-          <a href="#">Főoldal</a>
-          <a href="#">Szolgáltatások</a>
-          <a href="#">Kockázat Teszt</a>
-          <a href="#">Esettanulmányok</a>
-          <a href="#" class="cta">Ingyenes konzultáció</a>
-        </div>
-
-      </div>
+    <div class="logo">
+      <img src="logo.png">
     </div>
 
-    <div class="hero-content">
-      <h1>
-        Megvédjük vállalkozását<br>
-        a váratlan károktól
-      </h1>
-
-      <p>
-        Személyre szabott biztosítási megoldások cégeknek –
-        egyszerűen, érthetően.
-      </p>
-
-      <div class="hero-btn">
-        Kockázat Felmérés
-      </div>
+    <div class="nav">
+      <a href="#">Főoldal</a>
+      <a href="#">Szolgáltatások</a>
+      <a href="#">Kockázat Teszt</a>
+      <a href="#">Esettanulmányok</a>
+      <a href="#" class="cta">Ingyenes konzultáció</a>
     </div>
 
   </div>
+</div>
+
+<div class="hero-content">
+  <h1>Megvédjük vállalkozását a váratlan károktól</h1>
+
+  <p>Személyre szabott biztosítási megoldások cégeknek</p>
+
+  <div class="hero-btn">Kockázat Felmérés</div>
+</div>
+
+</section>
+
+<!-- TEST -->
+<section class="test-section">
+
+<div class="test-container">
+
+<div class="test-left">
+  <h2>Ingyenes Vállalkozás Biztosítási Kockázat Teszt</h2>
+
+  <ul class="checklist">
+    <li>Van felelősségbiztosítás?</li>
+    <li>Van vagyonbiztosítás?</li>
+    <li>Van üzemszünet biztosítás?</li>
+    <li>Van vezetői biztosítás?</li>
+    <li>Van kiberbiztosítás?</li>
+    <li>Van üzembiztonsági terv?</li>
+  </ul>
+</div>
+
+<div class="test-card">
+  <h3>Cégkockázat Teszt 2 perc alatt!</h3>
+  <p>Mennyire védett a cége?</p>
+
+  <div class="start-btn">Indítás →</div>
+</div>
+
+</div>
 
 </section>
 
